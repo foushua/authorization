@@ -1,0 +1,34 @@
+{
+    "name": "foushua/authorization",
+    "description": "Attach role to an user",
+    "keywords": [],
+    "homepage": "https://github.com/foushua/authorization",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Fouyon Joshua",
+            "email": "contact@foushua.be",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "illuminate/support": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Foushua\\Authorization\\": "src"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Foushua\\Authorization\\Providers\\AuthorizationServiceProvider"
+            ]
+        }
+    }
+}
