@@ -27,5 +27,5 @@ return [
 
     'models' => [
         'role' => Foushua\Authorization\Role::class,
-    ]
+    ],
 ];

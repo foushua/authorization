@@ -2,12 +2,11 @@
 
 namespace Foushua\Authorization\Providers;
 
+use Foushua\Authorization\Middlewares\LevelMiddleware;
+use Foushua\Authorization\Middlewares\RoleMiddleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Foushua\Authorization\Middlewares\RoleMiddleware;
-use Foushua\Authorization\Middlewares\LevelMiddleware;
-use Foushua\Authorization\Middlewares\PermissionMiddleware;
 
 class AuthorizationServiceProvider extends ServiceProvider
 {
@@ -36,7 +35,7 @@ class AuthorizationServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register all blade directives
+     * Register all blade directives.
      */
     protected function registerBladeDirectives()
     {
@@ -50,7 +49,7 @@ class AuthorizationServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register middlewares
+     * Register middlewares.
      */
     protected function registerMiddlewares()
     {

@@ -26,10 +26,18 @@ trait Authorizable
      */
     public function hasRole($role)
     {
-        if ($this->role === null) return false;
-        if (is_string($role)) return $this->role->name === $role;
-        if (is_integer($role)) return $this->role->id === $role;
-        if ($role instanceof Role) return $this->role->id === $role->id;
+        if ($this->role === null) {
+            return false;
+        }
+        if (is_string($role)) {
+            return $this->role->name === $role;
+        }
+        if (is_int($role)) {
+            return $this->role->id === $role;
+        }
+        if ($role instanceof Role) {
+            return $this->role->id === $role->id;
+        }
 
         return false;
     }
@@ -53,7 +61,7 @@ trait Authorizable
     public function setRole($role)
     {
         return $this->forceFill([
-            'role_id' => $role instanceof Role ? $role->id : $role
+            'role_id' => $role instanceof Role ? $role->id : $role,
         ])->save();
     }
 }

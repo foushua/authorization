@@ -3,8 +3,8 @@
 namespace Foushua\Authorization;
 
 use Exception;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Config;
 
 class Role extends Model
 {
@@ -22,7 +22,7 @@ class Role extends Model
      */
     protected $casts = [
         'editable' => 'boolean',
-        'removable' => 'boolean'
+        'removable' => 'boolean',
     ];
 
     /**
@@ -45,16 +45,20 @@ class Role extends Model
      */
     protected static function boot()
     {
-        Parent::boot();
+        parent::boot();
 
         // Check if this role is removable before deleting it..
         static::deleting(function ($role) {
-            if(!$role->removable) throw new Exception(__('This role cannot be deleted.'));
+            if (! $role->removable) {
+                throw new Exception(__('This role cannot be deleted.'));
+            }
         });
 
         // Check if this role is editable before updating it..
         static::updating(function ($role) {
-            if (!$role->editable) throw new Exception("This role cannot be updated.");
+            if (! $role->editable) {
+                throw new Exception('This role cannot be updated.');
+            }
         });
     }
 
